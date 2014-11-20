@@ -5,10 +5,10 @@ module BackboneRails
     # Returns true if `BackboneRails` is set to produce coffeescript,
     # false if it is set to produce javascript.
     def coffeescript?
-      if @coffeescript.nil?
-        detect_script!
-      else
+      if instance_variable_defined? :@coffeescript
         @coffeescript
+      else
+        detect_script!
       end
     end
 
